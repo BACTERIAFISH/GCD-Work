@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,160 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GCD_Work" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkD-97-pBh">
+                                <rect key="frame" x="20" y="144" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAu-rP-ZtS">
+                                <rect key="frame" x="301.5" y="144" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhb-s0-Mos">
+                                <rect key="frame" x="20" y="198" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haq-Sg-OJc">
+                                <rect key="frame" x="301.5" y="198" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-SO-DmL">
+                                <rect key="frame" x="20" y="252" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glO-Bf-eLm">
+                                <rect key="frame" x="301.5" y="252" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKG-Wy-iq8">
+                                <rect key="frame" x="20" y="336" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWq-HV-nyr">
+                                <rect key="frame" x="301.5" y="336" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOE-1z-1fL">
+                                <rect key="frame" x="20" y="390" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLH-rl-smR">
+                                <rect key="frame" x="301.5" y="390" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx9-TY-YwT">
+                                <rect key="frame" x="20" y="444" width="281.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkL-pY-h5Y">
+                                <rect key="frame" x="301.5" y="444" width="62.5" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="E6P-KW-YLD">
+                                <rect key="frame" x="89" y="578" width="236" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bof-gn-Mj5">
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Group"/>
+                                        <connections>
+                                            <action selector="startGroup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oX1-i8-wMR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF1-ix-DkW">
+                                        <rect key="frame" x="143" y="0.0" width="93" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Semaphore"/>
+                                        <connections>
+                                            <action selector="startSemaphore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMj-GK-bZS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wLH-rl-smR" firstAttribute="leading" secondItem="sOE-1z-1fL" secondAttribute="trailing" id="07w-LZ-306"/>
+                            <constraint firstItem="gAu-rP-ZtS" firstAttribute="top" secondItem="TkD-97-pBh" secondAttribute="top" id="0MY-aC-cqp"/>
+                            <constraint firstItem="sOE-1z-1fL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3zm-Il-yDO"/>
+                            <constraint firstItem="haq-Sg-OJc" firstAttribute="leading" secondItem="Vhb-s0-Mos" secondAttribute="trailing" id="4eC-8X-5uK"/>
+                            <constraint firstItem="E6P-KW-YLD" firstAttribute="top" secondItem="yx9-TY-YwT" secondAttribute="bottom" constant="100" id="B3M-17-p87"/>
+                            <constraint firstItem="glO-Bf-eLm" firstAttribute="leading" secondItem="Scc-SO-DmL" secondAttribute="trailing" id="Cio-gE-Xha"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wLH-rl-smR" secondAttribute="trailing" constant="50" id="D2W-ru-uZf"/>
+                            <constraint firstItem="sOE-1z-1fL" firstAttribute="top" secondItem="tKG-Wy-iq8" secondAttribute="bottom" constant="20" id="Kc9-p8-l3v"/>
+                            <constraint firstItem="Vhb-s0-Mos" firstAttribute="top" secondItem="TkD-97-pBh" secondAttribute="bottom" constant="20" id="LTl-ac-s5Z"/>
+                            <constraint firstItem="Scc-SO-DmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MV0-T9-muF"/>
+                            <constraint firstItem="TkD-97-pBh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="NsD-bV-vCc"/>
+                            <constraint firstItem="E6P-KW-YLD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OIP-Ii-MMd"/>
+                            <constraint firstItem="ZWq-HV-nyr" firstAttribute="leading" secondItem="tKG-Wy-iq8" secondAttribute="trailing" id="SY9-eZ-bxJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pkL-pY-h5Y" secondAttribute="trailing" constant="50" id="Ta5-H8-gIJ"/>
+                            <constraint firstItem="glO-Bf-eLm" firstAttribute="top" secondItem="Scc-SO-DmL" secondAttribute="top" id="Tri-Ly-7a2"/>
+                            <constraint firstItem="tKG-Wy-iq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VSo-JD-kkk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gAu-rP-ZtS" secondAttribute="trailing" constant="50" id="Xbo-3P-IQC"/>
+                            <constraint firstItem="Scc-SO-DmL" firstAttribute="top" secondItem="Vhb-s0-Mos" secondAttribute="bottom" constant="20" id="dFt-Hq-Rbu"/>
+                            <constraint firstItem="Vhb-s0-Mos" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dbw-dW-ncA"/>
+                            <constraint firstItem="pkL-pY-h5Y" firstAttribute="top" secondItem="yx9-TY-YwT" secondAttribute="top" id="fQ4-Qm-AQD"/>
+                            <constraint firstItem="gAu-rP-ZtS" firstAttribute="leading" secondItem="TkD-97-pBh" secondAttribute="trailing" id="hM1-qp-k81"/>
+                            <constraint firstItem="ZWq-HV-nyr" firstAttribute="top" secondItem="tKG-Wy-iq8" secondAttribute="top" id="iS8-bI-rhF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZWq-HV-nyr" secondAttribute="trailing" constant="50" id="iUN-11-5vb"/>
+                            <constraint firstItem="tKG-Wy-iq8" firstAttribute="top" secondItem="Scc-SO-DmL" secondAttribute="bottom" constant="50" id="j4f-St-oi6"/>
+                            <constraint firstItem="pkL-pY-h5Y" firstAttribute="leading" secondItem="yx9-TY-YwT" secondAttribute="trailing" id="ja4-0o-TG6"/>
+                            <constraint firstItem="haq-Sg-OJc" firstAttribute="top" secondItem="Vhb-s0-Mos" secondAttribute="top" id="ji8-Tm-vGl"/>
+                            <constraint firstItem="wLH-rl-smR" firstAttribute="top" secondItem="sOE-1z-1fL" secondAttribute="top" id="l2v-LA-wNB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="haq-Sg-OJc" secondAttribute="trailing" constant="50" id="qsQ-vQ-aTr"/>
+                            <constraint firstItem="yx9-TY-YwT" firstAttribute="top" secondItem="sOE-1z-1fL" secondAttribute="bottom" constant="20" id="r6r-y2-KYn"/>
+                            <constraint firstItem="TkD-97-pBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="riG-0l-jyE"/>
+                            <constraint firstItem="yx9-TY-YwT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="t7n-DS-S8G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glO-Bf-eLm" secondAttribute="trailing" constant="50" id="xWc-a6-qqR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="groupLimitLabel0" destination="gAu-rP-ZtS" id="VRM-oW-YZQ"/>
+                        <outlet property="groupLimitLabel10" destination="haq-Sg-OJc" id="lQD-TW-XwA"/>
+                        <outlet property="groupLimitLabel20" destination="glO-Bf-eLm" id="HWI-4J-7K5"/>
+                        <outlet property="groupRoadLabel0" destination="TkD-97-pBh" id="Gfs-WR-PnI"/>
+                        <outlet property="groupRoadLabel10" destination="Vhb-s0-Mos" id="sNW-es-VMc"/>
+                        <outlet property="groupRoadLabel20" destination="Scc-SO-DmL" id="zjQ-F9-Y1l"/>
+                        <outlet property="semaphoreLimitLabel0" destination="ZWq-HV-nyr" id="mXO-0N-lLo"/>
+                        <outlet property="semaphoreLimitLabel10" destination="wLH-rl-smR" id="bu7-ZK-l1F"/>
+                        <outlet property="semaphoreLimitLabel20" destination="pkL-pY-h5Y" id="I7B-ap-EXZ"/>
+                        <outlet property="semaphoreRoadLabel0" destination="tKG-Wy-iq8" id="IgX-01-moR"/>
+                        <outlet property="semaphoreRoadLabel10" destination="sOE-1z-1fL" id="wTW-Yq-d5t"/>
+                        <outlet property="semaphoreRoadLabel20" destination="yx9-TY-YwT" id="Cd7-Nl-0Bw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="136"/>
         </scene>
     </scenes>
 </document>
