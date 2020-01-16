@@ -35,61 +35,53 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        URLSession.shared.delegateQueue.maxConcurrentOperationCount = 3
     }
-
+    
     @IBAction func startGroup(_ sender: UIButton) {
         
         cleanGroup()
         
         let group = DispatchGroup()
         
-        DispatchQueue.global().async(group: group) { [weak self] in
-            group.enter()
-            self?.manager.fetch(offset: 0) { result in
-                switch result {
-                case .success(let data):
-                    self?.groupRoad0 = data.results[0].road
-                    self?.groupLimit0 = data.results[0].speedLimit
-                    group.leave()
-                case .failure(let error):
-                    print(error)
-                    group.leave()
-                }
+        group.enter()
+        manager.fetch(offset: 0) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.groupRoad0 = data.results[0].road
+                self?.groupLimit0 = data.results[0].speedLimit
+            case .failure(let error):
+                print(error)
             }
+            group.leave()
         }
         
-        DispatchQueue.global().async(group: group) { [weak self] in
-            group.enter()
-            self?.manager.fetch(offset: 10) { result in
-                switch result {
-                case .success(let data):
-                    self?.groupRoad10 = data.results[0].road
-                    self?.groupLimit10 = data.results[0].speedLimit
-                    group.leave()
-                case .failure(let error):
-                    print(error)
-                    group.leave()
-                }
+        group.enter()
+        manager.fetch(offset: 10) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.groupRoad10 = data.results[0].road
+                self?.groupLimit10 = data.results[0].speedLimit
+            case .failure(let error):
+                print(error)
             }
+            group.leave()
         }
         
-        DispatchQueue.global().async(group: group) { [weak self] in
-            group.enter()
-            self?.manager.fetch(offset: 20) { result in
-                switch result {
-                case .success(let data):
-                    self?.groupRoad20 = data.results[0].road
-                    self?.groupLimit20 = data.results[0].speedLimit
-                    group.leave()
-                case .failure(let error):
-                    print(error)
-                    group.leave()
-                }
+        group.enter()
+        manager.fetch(offset: 20) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.groupRoad20 = data.results[0].road
+                self?.groupLimit20 = data.results[0].speedLimit
+            case .failure(let error):
+                print(error)
             }
+            group.leave()
         }
         
-        group.notify(queue: DispatchQueue.main) { [weak self] in
+        group.notify(queue: .main) { [weak self] in
             self?.groupRoadLabel0.text = self?.groupRoad0
             self?.groupLimitLabel0.text = self?.groupLimit0
             self?.groupRoadLabel10.text = self?.groupRoad10
@@ -99,56 +91,56 @@ class ViewController: UIViewController {
         }
     }
     
+    let semaphore1 = DispatchSemaphore(value: 0)
+    let semaphore2 = DispatchSemaphore(value: 0)
+    
     @IBAction func startSemaphore(_ sender: UIButton) {
         
         cleanSemaphore()
         
-        let semaphore = DispatchSemaphore(value: 1)
-        
-        DispatchQueue.global().async { [weak self] in
-            semaphore.wait()
-            self?.manager.fetch(offset: 0) { result in
-                switch result {
-                case .success(let data):
+        manager.fetch(offset: 0) { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
                     self?.semaphoreRoadLabel0.text = data.results[0].road
                     self?.semaphoreLimitLabel0.text = data.results[0].speedLimit
-                    semaphore.signal()
-                case .failure(let error):
-                    print(error)
-                    semaphore.signal()
+                    self?.semaphore1.signal()
                 }
+            case .failure(let error):
+                print(error)
+                self?.semaphore1.signal()
             }
+            
         }
         
-        DispatchQueue.global().async { [weak self] in
-            semaphore.wait()
-            self?.manager.fetch(offset: 10) { result in
-                switch result {
-                case .success(let data):
+        manager.fetch(offset: 10) { [weak self] result in
+            self?.semaphore1.wait()
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
                     self?.semaphoreRoadLabel10.text = data.results[0].road
                     self?.semaphoreLimitLabel10.text = data.results[0].speedLimit
-                    semaphore.signal()
-                case .failure(let error):
-                    print(error)
-                    semaphore.signal()
+                    self?.semaphore2.signal()
                 }
+            case .failure(let error):
+                print(error)
+                self?.semaphore2.signal()
             }
         }
         
-        DispatchQueue.global().async { [weak self] in
-            semaphore.wait()
-            self?.manager.fetch(offset: 20) { result in
-                switch result {
-                case .success(let data):
+        manager.fetch(offset: 20) { [weak self] result in
+            self?.semaphore2.wait()
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
                     self?.semaphoreRoadLabel20.text = data.results[0].road
                     self?.semaphoreLimitLabel20.text = data.results[0].speedLimit
-                    semaphore.signal()
-                case .failure(let error):
-                    print(error)
-                    semaphore.signal()
                 }
+            case .failure(let error):
+                print(error)
             }
         }
+        
     }
     
     func cleanGroup() {
@@ -169,4 +161,3 @@ class ViewController: UIViewController {
         semaphoreLimitLabel20.text = ""
     }
 }
-

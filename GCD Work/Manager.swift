@@ -19,9 +19,7 @@ class Manager {
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
-                DispatchQueue.main.async {
-                    completion(Result.failure(error))
-                }
+                completion(Result.failure(error))
                 return
             }
             
@@ -35,20 +33,16 @@ class Manager {
                 do {
                     let result = try decoder.decode(SCResponse.self, from: data)
                     //print(result.result)
-                    DispatchQueue.main.async {
-                        completion(Result.success(result.result))
-                    }
+                    completion(Result.success(result.result))
                 } catch {
-                    DispatchQueue.main.async {
-                        completion(Result.failure(error))
-                    }
+                    completion(Result.failure(error))
                 }
                 
             default:
                 print("unexpected error")
-//                DispatchQueue.main.async {
-//                    completion(Result.failure(error))
-//                }
+                //                DispatchQueue.main.async {
+                //                    completion(Result.failure(error))
+                //                }
             }
             
         }
